@@ -7,9 +7,7 @@ function Footer() {
   return (
     <Container>
       <LinksContainer>
-        <Links>
-       
-        </Links>
+        <Links></Links>
       </LinksContainer>
       {/* <Social>vanessasamira1996@gmail.com</Social> */}
     </Container>
@@ -17,14 +15,6 @@ function Footer() {
 }
 
 const Container = styled.div`
-  //   margin-left: 25%;
-  //   margin-bottom: 2rem;
-  //   background-color:red !important;
-
-  //   display: flex;
-  //   gap: 1rem;
-  //   color: #e4e4e4;
-  //   cursor: pointer;
   h3 {
     font-weight: 300;
   }
@@ -43,17 +33,13 @@ const Container = styled.div`
 const LinksContainer = styled.div`
   background-color: ${darkThemeColor};
   width: 100%;
- // border-radius: 2rem;
 
   @media screen and (min-width: 320px) and (max-width: 1080px) {
     display: flex;
     margin-left: -30px;
   }
 `;
-const Links = styled.ul`
-
- 
-`;
+const Links = styled.ul``;
 
 const Link = styled.li`
   margin-left: 25%;

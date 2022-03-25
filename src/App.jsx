@@ -46,7 +46,7 @@ function App() {
 
 const Container = styled.div`
   display: flex;
-
+  //background: #999;
   height: 100vh;
   background: url(${banner});
   background-size: 1455px;

@@ -83,15 +83,18 @@ const Container = styled.div`
 
 const ProfileContainer = styled.div`
   display: flex;
+  cursor: pointer;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  cursor: pointer;
 `;
 
 const Avatar = styled.img`
   height: 7rem;
   border-radius: 6rem;
   margin-top: 20%;
+  
 `;
 
 const Name = styled.h1`

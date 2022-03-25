@@ -1,6 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import { FiSearch } from "react-icons/fi";
+import { BiBell } from "react-icons/bi";
+
+import AvatarImage from "../../assets/banner.jpg";
+
 function Navbar() {
   return (
     <NavbarContainer>
@@ -8,8 +12,26 @@ function Navbar() {
         <Icon>
           <FiSearch />
         </Icon>
-        <Input type="text" placeholder="Search for projects" />
+        <Input type="text" placeholder="Procure algum jogo" />
       </InputContainer>
+
+      <Avatar>
+        <BiBell
+          alt="Jogos"
+          style={{
+            borderRadius: 30,
+            width: 30,
+            height: 30,
+            color: "black",
+            cursor: "pointer",
+          }}
+        />
+        <img
+          src={AvatarImage}
+          alt="Jogos"
+          style={{ borderRadius: 0, cursor: "pointer" }}
+        />
+      </Avatar>
       <Text>
         Bom dia,
         <span> Vanessa</span>
@@ -17,6 +39,32 @@ function Navbar() {
     </NavbarContainer>
   );
 }
+
+const Avatar = styled.div`
+  img {
+    height: 3.5rem;
+    width: 3.5rem;
+    margin: 0px 5px 5px 5px;
+    border-radius: 0rem;
+    animation: rotation-image 1s ease-in infinite;
+  }
+
+  @keyframes rotation-image {
+    0% {
+      border-radius: 0;
+    }
+    60% {
+      border-radius: 35% 0 35% 0;
+    }
+    100% {
+      border-radius: 0%;
+    }
+  }
+
+  @media screen and (min-width: 320px) and (max-width: 1080px) {
+    display: none;
+  }
+`;
 
 const NavbarContainer = styled.nav`
   display: flex;
@@ -30,12 +78,11 @@ const NavbarContainer = styled.nav`
 `;
 
 const Text = styled.h1`
-color:red;
-
+  color: white;
+  box-shadow:red;
   span {
     font-weight: 500;
-    //color: #484258;
-   color:red;
+    color: red;
   }
   @media screen and (min-width: 320px) and (max-width: 1080px) {
     margin-top: 1rem;
@@ -43,6 +90,9 @@ color:red;
 `;
 const InputContainer = styled.div`
   display: flex;
+  @media screen and (min-width: 320px) and (max-width: 1080px) {
+    display: none;
+  }
 `;
 
 const Icon = styled.div`

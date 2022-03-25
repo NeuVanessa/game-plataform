@@ -10,7 +10,7 @@ function Invoices() {
     <InvoicesContainer>
       <CardContent>
         <Invoice>
-          <Info>
+          <Info primary primary_color border_color>
             <Avatar>
               <img src={AvatarImage2} alt="Jogos" />
             </Avatar>
@@ -20,7 +20,8 @@ function Invoices() {
               <SubTitle>Gratuito</SubTitle>
             </TextContainer>
           </Info>
-          <Info>
+
+          <Info  primary primary_color border_color>
             <Avatar>
               {" "}
               <img src={AvatarImage2} alt="" />
@@ -33,7 +34,7 @@ function Invoices() {
           </Info>
         </Invoice>
         <Invoice>
-          <Info>
+          <Info  primary primary_color border_color>
             <Avatar>
               {" "}
               <img src={AvatarImage2} alt="" />
@@ -44,7 +45,8 @@ function Invoices() {
               <SubTitle> R$ 50,00</SubTitle>
             </TextContainer>
           </Info>
-          <Info>
+          <Info  primary primary_color border_color>
+            {" "}
             <Avatar>
               {" "}
               <img src={AvatarImage2} alt="" />
@@ -65,13 +67,12 @@ const InvoicesContainer = styled.div`
   width: 35rem;
   border-radius: 1rem;
   margin-top: 1rem;
-  //background-color: white;
-  height: 100%;
-  box-shadow: ${cardShadow};
+  //height: 100%;
+  //box-shadow: ${cardShadow};
   transition: 0.4s ease-in-out;
-  &:hover {
-    box-shadow: ${hoverEffect};
-  }
+  // &:hover {
+  //   box-shadow: ${hoverEffect};
+  // }
   @media screen and (min-width: 320px) and (max-width: 1080px) {
     width: 80%;
     display: flex;
@@ -88,28 +89,104 @@ const CardContent = styled.div`
 const Invoice = styled.div`
   display: flex;
   align-items: center;
+
   justify-content: space-around;
-  margin: 0.4rem;
-  padding-top: 0.6rem;
+  margin: 0rem;
+  padding-top: 0rem;
   @media screen and (min-width: 320px) and (max-width: 1080px) {
     flex-direction: column;
     gap: 1rem;
   }
 `;
+
 const Info = styled.div`
+
+// &:hover {
+  //   box-shadow: ${hoverEffect};
+  // }
+cursor: pointer;
   display: flex;
   border-radius: 8px;
+  position: relative;
+  border: none;
   align-items: center;
   margin: 5px 5px 5px 5px;
   background: #091322;
   width: 50%;
   height: 80px;
+  animation-duration: 0.3s;
+  animation-timing-function: ease;
+  animation: fadeOut 1s;
+
+  ::before {
+    content: "";
+    width: 0;
+    height: 0;
+    left: 0px;
+    bottom: 0px;
+    position: absolute;
+    box-sizing: border-box;
+  }
+  :after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 0;
+    right: 0px;
+    top: 0;
+    height: 0;
+    box-sizing: border-box;
+  }
+  :hover:after {
+    border: ${(props) =>
+      props.border_color ? "1px solid white" : "3px solid pink"};
+    width: 100%;
+    height: 40px;
+    border-left: none;
+    border-top: none;
+    transition: height 0.5s linear, width 0.5s linear 0.5s;
+  }
+  :hover:before {
+    border: ${(props) =>
+      props.border_color ? "1px solid white" : "1px solid pink"};
+    width: 100%;
+    height: 80px;
+    border-right: none;
+    border-bottom: none;
+    transition: height 0.5s linear, width 0.5s linear 0.5s;
+  }
+
+  :hover:after {
+    border: ${(props) =>
+      props.border_color ? "1px solid white" : "1px solid pink"};
+    width: 100%;
+    height: 80px;
+    border-left: none;
+    border-top: none;
+    transition: height 0.5s linear, width 0.5s linear 0.5s;
+  }
+
+  @keyframes fadeOut {
+    0% {
+      transform: scale(0.1);
+      opacity: 0;
+    }
+    60% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
   @media screen and (min-width: 320px) and (max-width: 1080px) {
     flex-direction: column;
     width: 100%;
     text-align: center;
   }
 `;
+
 const Avatar = styled.div`
   height: 3.5rem;
   width: 3.5rem;
